@@ -2,12 +2,12 @@
 
 [Tab completion][] installer for your CLI app with [bash][] and [zsh][] support
 
-This was built as part of [foundry][], a CLI utility for making releases painless.
+The template we leverage is forked from [npm][npm-completion]. This script was built to make the installation process easy for CLI application.
 
 [Tab completion]: http://en.wikipedia.org/wiki/Command-line_completion
 [bash]: http://en.wikipedia.org/wiki/Bash_%28Unix_shell%29
 [zsh]: http://www.zsh.org/
-[foundry]: https://github.com/twolfson/foundry
+[npm-completion]: https://github.com/npm/npm/blob/v1.3.17/lib/utils/completion.sh
 
 ## Getting Started
 Install the module with: `npm install tab-completion`
