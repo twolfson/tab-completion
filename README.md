@@ -1,6 +1,13 @@
 # tab-completion [![Build status](https://travis-ci.org/twolfson/tab-completion.png?branch=master)](https://travis-ci.org/twolfson/tab-completion)
 
-Tab completion script for your CLI app with bash and zsh support
+[Tab completion][] installer for your CLI app with [bash][] and [zsh][] support
+
+This was built as part of [foundry][], a CLI utility for making releases painless.
+
+[Tab completion]: http://en.wikipedia.org/wiki/Command-line_completion
+[bash]: http://en.wikipedia.org/wiki/Bash_%28Unix_shell%29
+[zsh]: http://www.zsh.org/
+[foundry]: https://github.com/twolfson/foundry
 
 ## Getting Started
 Install the module with: `npm install tab-completion`
