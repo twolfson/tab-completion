@@ -1,9 +1,12 @@
-var tab_completion = require('../');
+// Load dependencies
+var TabCompletion = require('../');
 
-if (process.env.VAGRANT !== 'true' || process.env.TRAVIS !== 'true') {
+// Verify we are in a contained environment
+if (process.env.VAGRANT !== 'true' && process.env.TRAVIS !== 'true') {
   throw new Error('Tests must be run in enclosed environment (e.g. Vagrant, Travis) to prevent accidents on host OS');
 }
 
+// Start our tests
 describe('tab-completion', function () {
   before(function () {
     // http://stackoverflow.com/a/9505024/1960509
