@@ -35,7 +35,7 @@ var tabCompletionUtils = {
 describe('tab-completion', function () {
   describe('installed on a bash system', function () {
     fsUtils.unlink(process.env.HOME + '/.bashrc');
-    fsUtils.cp(__dirname + '/test-files/empty-bashrc.sh', process.env.HOME + '/.bashrc');
+    fsUtils.cp(__dirname + '/test-files/bashrc.sh', process.env.HOME + '/.bashrc');
     tabCompletionUtils.install('bash-test');
 
     it('informs us that the script was added to the .bashrc file', function () {
