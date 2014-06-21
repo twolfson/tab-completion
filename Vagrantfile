@@ -25,6 +25,13 @@ SCRIPT
 SCRIPT
   config.vm.provision "shell", inline: $install_node
 
+  $install_zsh = <<SCRIPT
+  if ! which zsh &> /dev/null; then
+    sudo apt-get install -y zsh
+  fi
+SCRIPT
+  config.vm.provision "shell", inline: $install_zsh
+
   # Verify environment is properly configured
   $configure_env = <<SCRIPT
   if test "$VAGRANT" != "true"; then
