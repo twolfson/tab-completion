@@ -1,4 +1,4 @@
-{{!Forked from https://github.com/isaacs/npm/blob/v1.3.17/lib/utils/completion.sh}}
+{{#false}}Forked from https://github.com/isaacs/npm/blob/v1.3.17/lib/utils/completion.sh{{/false}}
 #!/bin/bash
 ###-begin-{{name}}-completion-###
 #
@@ -23,7 +23,7 @@ if type complete &>/dev/null; then
     IFS="$si"
   }
   complete -F _{{name}}_completion {{name}}
-{{!DEV: We removed `compdef` due to issues with `zsh` (zsh 5.0.0 (x86_64-unknown-linux-gnu))}}
+{{#false}}DEV: We removed `compdef` due to issues with `zsh` (zsh 5.0.0 (x86_64-unknown-linux-gnu)){{/false}}
 elif type compctl &>/dev/null; then
   _{{name}}_completion () {
     local cword line point words si
