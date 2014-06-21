@@ -1,4 +1,5 @@
 // Load dependencies
+var expect = require('chai').expect;
 var fsUtils = require('./utils/fs');
 var TabCompletion = require('../');
 
@@ -35,6 +36,7 @@ describe('tab-completion', function () {
   describe('installed on a bash system', function () {
     fsUtils.unlink(process.env.HOME + '/.bashrc');
     fsUtils.cp(__dirname + '/test-files/empty-bashrc.sh', process.env.HOME + '/.bashrc');
+    tabCompletionUtils.install('bash-test');
 
     it('informs us that the script was added to the .bashrc file', function () {
       expect(this.err).to.equal(null);

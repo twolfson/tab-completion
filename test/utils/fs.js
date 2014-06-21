@@ -1,4 +1,5 @@
 // Load in dependencies
+var fs = require('fs');
 var cp = require('cp');
 
 // Define common fs helpers
@@ -24,6 +25,6 @@ exports.readFile = function (filepath) {
 
 exports.unlink = function (filepath) {
   before(function unlinkFn (done) {
-    unlink(filepath, done);
+    fs.unlink(filepath, done);
   });
 };
