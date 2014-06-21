@@ -7,17 +7,44 @@ if (process.env.VAGRANT !== 'true' && process.env.TRAVIS !== 'true') {
   throw new Error('Tests must be run in enclosed environment (e.g. Vagrant, Travis) to prevent accidents on host OS');
 }
 
+// Define helpers for our tests
+var tabCompletionUtils = {
+  install: function (name) {
+    before(function installFn (done) {
+      // Create and install a new TabCompletion
+      var that = this;
+      var tabCompletion = new TabCompletion(name);
+
+      tabCompletion.install(function handleResults (err, results) {
+        // Save the results and callback
+        that.err = err;
+        that.results = results;
+        done();
+      });
+    });
+    after(function cleanupInstall () {
+      // Clean up saved variables
+      delete this.err;
+      delete this.results;
+    });
+  }
+};
+
 // Start our tests
 describe('tab-completion', function () {
-  describe.skip('installed on a bash system', function () {
+  describe('installed on a bash system', function () {
     fsUtils.unlink(process.env.HOME + '/.bashrc');
     fsUtils.cp(__dirname + '/test-files/empty-bashrc.sh', process.env.HOME + '/.bashrc');
 
-    it('adds the script to the .bashrc file', function () {
-
+    it('informs us that the script was added to the .bashrc file', function () {
+      expect(this.err).to.equal(null);
+      expect(this.results).to.contain(process.env.HOME + '/.bashrc');
     });
 
-    describe('when completed against', function () {
+    it.skip('adds the script to the .bashrc file', function () {
+    });
+
+    describe.skip('when completed against', function () {
       // http://stackoverflow.com/a/9505024/1960509
       // COMP_LINE="foundry re" COMP_WORDS=(foundry re) COMP_CWORD=1 COMP_POINT=10 $(complete -p foundry | sed "s/.*-F \\([^ ]*\\) .*/\\1/") && echo ${COMPREPLY[*]}
 
