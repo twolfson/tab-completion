@@ -1,4 +1,5 @@
 // Load dependencies
+var fsUtils = require('./utils/fs');
 var TabCompletion = require('../');
 
 // Verify we are in a contained environment
@@ -9,6 +10,9 @@ if (process.env.VAGRANT !== 'true' && process.env.TRAVIS !== 'true') {
 // Start our tests
 describe('tab-completion', function () {
   describe.skip('installed on a bash system', function () {
+    fsUtils.unlink(process.env.HOME + '/.bashrc');
+    fsUtils.cp(__dirname + '/test-files/empty-bashrc.sh', process.env.HOME + '/.bashrc');
+
     it('adds the script to the .bashrc file', function () {
 
     });

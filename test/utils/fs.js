@@ -21,3 +21,9 @@ exports.readFile = function (filepath) {
     delete this.buff;
   });
 };
+
+exports.unlink = function (filepath) {
+  before(function unlinkFn (done) {
+    unlink(filepath, done);
+  });
+};
